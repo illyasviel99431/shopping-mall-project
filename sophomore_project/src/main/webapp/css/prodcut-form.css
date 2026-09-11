@@ -1,0 +1,396 @@
+/* =====================================================
+   관리자 상품 등록 / 수정
+===================================================== */
+
+.product-form-page {
+    padding: 55px 0 80px;
+}
+
+.product-form-card {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border: 1px solid #eef1f6;
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+    padding: 40px;
+}
+
+.product-form-title {
+    margin: 0 0 8px;
+
+    color: #212529;
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.product-form-description {
+    margin: 0 0 35px;
+
+    color: #868e96;
+
+    font-size: 14px;
+}
+
+.product-form-group {
+    margin-bottom: 24px;
+}
+
+.product-form-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #343a40;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-form-input,
+.product-form-textarea,
+.product-form-select {
+    display: block;
+
+    width: 100%;
+
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+    color: #212529;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.product-form-input,
+.product-form-select {
+    height: 48px;
+
+    padding: 0 14px;
+}
+
+.product-form-textarea {
+    min-height: 150px;
+
+    padding: 14px;
+
+    line-height: 1.7;
+
+    resize: vertical;
+}
+
+.product-form-input:focus,
+.product-form-textarea:focus,
+.product-form-select:focus {
+    border-color: #adb5bd;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+
+
+.product-file-wrap {
+    position: relative;
+}
+
+.product-file-input {
+    width: 100%;
+    height: 48px;
+}
+
+.product-file-name {
+    margin-top: 8px;
+
+    color: #868e96;
+
+    font-size: 13px;
+}
+
+
+/* 이미지 미리보기 */
+
+.product-preview-title {
+    margin-top: 18px;
+    margin-bottom: 10px;
+
+    color: #495057;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.product-preview-box {
+    width: 100%;
+    max-width: 420px;
+    height: 320px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+
+    background-color: #f8f9fa;
+}
+
+.product-preview-box img {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.product-preview-placeholder {
+    color: #adb5bd;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+/* 기존 이미지 */
+
+.current-image-box {
+    margin-bottom: 15px;
+}
+
+.current-image-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #868e96;
+
+    font-size: 13px;
+}
+
+.current-image {
+    display: block;
+
+    width: 180px;
+    height: 180px;
+
+    object-fit: contain;
+
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+
+    background-color: #f8f9fa;
+}
+
+
+
+.product-form-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 35px;
+}
+
+.product-form-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 105px;
+    height: 44px;
+
+    padding: 0 20px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none !important;
+
+    cursor: pointer;
+}
+
+.product-form-submit {
+    border: 1px solid #212529;
+
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.product-form-submit:hover {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.product-form-cancel {
+    border: 1px solid #dee2e6;
+
+    background-color: #ffffff;
+    color: #495057 !important;
+}
+
+.product-form-cancel:hover {
+    background-color: #f8f9fa;
+}
+
+
+
+.product-condition-group {
+    display: flex;
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.product-condition-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+/* 언어 */
+
+.product-language {
+    margin-bottom: 25px;
+
+    color: #868e96;
+
+    font-size: 13px;
+}
+
+.product-language a {
+    color: #495057;
+    text-decoration: none;
+}
+
+.product-language a:hover {
+    color: #212529;
+}
+
+
+
+@media (max-width: 767px) {
+
+    .product-form-page {
+        padding: 35px 15px 60px;
+    }
+
+    .product-form-card {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .product-preview-box {
+        height: 260px;
+    }
+
+    .product-form-buttons {
+        flex-direction: column;
+    }
+
+    .product-form-button {
+        width: 100%;
+    }
+
+}
+
+.product-preview-title {
+    margin-top: 18px;
+    margin-bottom: 10px;
+
+    color: #495057;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.product-preview-box {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    height: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 12px;
+
+    background-color: #f8f9fa;
+}
+
+
+.product-preview-box img {
+
+    display: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.product-preview-placeholder {
+
+    color: #adb5bd;
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+
+.current-image {
+
+    display: block;
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: contain;
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 10px;
+
+    background-color: #f8f9fa;
+}

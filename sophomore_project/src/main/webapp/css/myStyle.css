@@ -1,0 +1,790 @@
+/* 전체 여백 및 배경색 설정 */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #333;
+}
+
+h1,h2{
+	font-family: "Malgun Gothic", sans-serif;
+}
+
+
+
+/* 상품 카드 공통 */
+.product-card {
+    width: 100%;
+    min-height: 550px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.product-info {
+    padding: 25px 24px 35px;
+}
+/* 상품 상세 이미지 */
+.product-img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* 상세페이지 타이틀 */
+.product-card h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #212529;
+    letter-spacing: -0.5px;
+}
+
+/* 상세페이지 설명 */
+.product-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6c757d;
+}
+
+/* 정보 리스트 */
+.product-info-list p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f3f5;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.product-card b {
+    display: inline-block;
+    width: 110px;
+    color: #495057;
+    font-weight: 600;
+}
+
+/* 가격 */
+.price {
+    font-size: 28px;
+    color: #e63946;
+    font-weight: 800;
+}
+
+/* ==========================================
+   상품 목록 페이지(productsu.jsp) 카드 스타일
+   ========================================== */
+.product-grid-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eef1f6;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-grid-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.product-grid-img-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-grid-card:hover .product-grid-img {
+    transform: scale(1.08);
+}
+
+.product-grid-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-grid-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-grid-desc {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    height: 42px; /* 2줄 제한 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-grid-price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #e63946;
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+/* 상단 네비게이션 바의 글씨 크기 및 정렬 다듬기 */
+    .navbar-brand span {
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .navbar-nav .nav-link {
+      font-size: 15px !important;
+      font-weight: 500;
+      padding: 10px 15px !important;
+    }
+    /* 검색창 스타일 커스텀 */
+    .nav-search-form {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+    .nav-search-input {
+      border-radius: 20px 0 0 20px !important;
+      border: 1px solid #ddd;
+      border-right: none;
+      font-size: 14px;
+      padding: 6px 15px;
+      width: 180px;
+      transition: width 0.3s ease;
+    }
+    .nav-search-input:focus {
+      width: 220px;
+      outline: none;
+      box-shadow: none;
+      border-color: #ffbe33;
+    }
+    .nav-search-btn {
+      border-radius: 0 20px 20px 0 !important;
+      background-color: #ffbe33;
+      border: 1px solid #ffbe33;
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .nav-search-btn:hover {
+      background-color: #e6a71e;
+      border-color: #e6a71e;
+    }
+/* ==========================================
+   로그인 페이지
+========================================== */
+
+.login-section {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 45px 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eef1f6;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-logo {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffbe33;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.login-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 10px;
+}
+
+.login-title p {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* 입력창 */
+
+.login-input-group {
+    margin-bottom: 22px;
+}
+
+.login-input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.login-input-box {
+    position: relative;
+}
+
+.login-input-box i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.login-input-box input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0 15px 0 45px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.login-input-box input:focus {
+    border-color: #ffbe33;
+    box-shadow: 0 0 0 3px rgba(255,190,51,0.12);
+}
+
+
+/* 로그인 버튼 */
+
+.login-button {
+    display: block;
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffbe33;
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #e6a71e;
+    transform: translateY(-2px);
+}
+
+
+/* 테스트 계정 */
+
+.login-info {
+    margin-top: 25px;
+    padding: 14px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.login-info strong {
+    color: #555;
+}
+
+
+/* 로그아웃 버튼 */
+
+.logout-button {
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #555 !important;
+    text-decoration: none !important;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* 마이페이지 */
+
+.mypage-card {
+    max-width: 480px;
+}
+
+.mypage-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mypage-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 20px;
+    border: 1px solid #eef1f6;
+    border-radius: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.mypage-menu-item i {
+    width: 25px;
+    text-align: center;
+    color: #ffbe33;
+    font-size: 18px;
+}
+
+.mypage-menu-item:hover {
+    border-color: #ffbe33;
+    background-color: #fffaf0;
+    transform: translateX(3px);
+}
+
+.mypage-menu-item.logout-item i {
+    color: #e63946;
+}
+
+.mypage-menu-item.logout-item:hover {
+    border-color: #e63946;
+    background-color: #fff5f5;
+}
+
+
+/* ==========================================
+   ILLYA 공통 쇼핑몰 디자인 시스템
+========================================== */
+
+body {
+    min-height: 100vh;
+    background: #f6f7f8;
+    color: #202124;
+    letter-spacing: -0.2px;
+}
+
+.header_section {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
+}
+
+.custom_nav-container .navbar-nav {
+    align-items: center;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.nav-search-form {
+    margin-left: 12px;
+}
+
+.language-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 59px;
+    height: 33px;
+    margin-left: 8px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, .36);
+    border-radius: 18px;
+    background: transparent;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .6px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.language-switch:hover {
+    border-color: #ffbe33;
+    background: #ffbe33;
+    color: #202124;
+}
+
+.language-switch i {
+    font-size: 13px;
+}
+
+.shop-page {
+    min-height: calc(100vh - 340px);
+    padding: 58px 0 82px;
+}
+
+.shop-page-hero {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding: 46px 0;
+    background: #181b20;
+    color: #fff;
+}
+
+.shop-page-hero::after {
+    content: "ILLYA";
+    position: absolute;
+    right: 4%;
+    bottom: -27px;
+    color: rgba(255, 255, 255, .045);
+    font-size: clamp(70px, 14vw, 185px);
+    font-weight: 900;
+    letter-spacing: -8px;
+    line-height: 1;
+}
+
+.shop-page-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.shop-page-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(31px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.shop-page-hero p:last-child {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, .65);
+}
+
+.shop-surface {
+    background: #fff;
+    border: 1px solid #e8ebee;
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(28, 31, 35, .06);
+}
+
+.shop-btn-primary,
+.shop-btn-outline,
+.shop-btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 0 20px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none !important;
+    transition: .2s ease;
+}
+
+.shop-btn-primary {
+    border: 1px solid #ffbe33;
+    background: #ffbe33;
+    color: #242424 !important;
+}
+
+.shop-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(255, 190, 51, .27);
+    color: #242424 !important;
+}
+
+.shop-btn-outline {
+    border: 1px solid #d9dde2;
+    background: #fff;
+    color: #30343a !important;
+}
+
+.shop-btn-outline:hover {
+    border-color: #25282d;
+    background: #f6f7f8;
+}
+
+.shop-btn-danger {
+    border: 1px solid #e5484d;
+    background: #fff;
+    color: #d9363e !important;
+}
+
+.shop-btn-danger:hover {
+    background: #fff2f2;
+}
+
+@media (max-width: 991px) {
+    .language-switch {
+        margin: 12px auto 0;
+    }
+
+    .nav-search-form {
+        margin-left: 0;
+    }
+}
+
+
+/* ==========================================
+   공통 링크 · 계정 메뉴
+   브라우저 기본 파란 링크 대신 역할이 보이는 클릭 영역을 사용한다.
+========================================== */
+
+a {
+    color: #272b31;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d9363e;
+    text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(217, 54, 62, .3);
+    outline-offset: 3px;
+}
+
+/* 클래스가 없는 본문 링크도 작고 명확한 사각형 버튼으로 보인다. */
+main a[href]:not([class]),
+section a[href]:not([class]) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid #d7dce2;
+    border-radius: 6px;
+    background: #fff;
+    color: #272b31;
+    font-size: 14px;
+    font-weight: 700;
+    transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+main a[href]:not([class]):hover,
+section a[href]:not([class]):hover {
+    border-color: #d9363e;
+    background: #fff5f5;
+    color: #c72f37;
+}
+
+.custom_nav-container .navbar-nav {
+    padding-left: 0 !important;
+}
+
+.header_section .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 5px;
+    border-radius: 7px;
+}
+
+.header_section .navbar-brand:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, .08);
+}
+
+.header_section .navbar-nav .nav-link,
+.header_section .account-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    margin: 2px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.header_section .navbar-nav .nav-link:hover,
+.header_section .navbar-nav .nav-link:focus,
+.header_section .account-menu-toggle:hover,
+.header_section .account-menu-toggle:focus {
+    border-color: rgba(255, 255, 255, .24);
+    background: rgba(255, 255, 255, .09);
+    color: #ffbe33;
+    text-decoration: none;
+    outline: none;
+}
+
+.header_section .navbar-nav .nav-item.active > .nav-link {
+    background: rgba(255, 190, 51, .1);
+}
+
+.header_section .dropdown {
+    position: relative;
+}
+
+.header_section .account-menu-toggle::after {
+    margin-left: 8px;
+}
+
+.header_section .account-menu {
+    min-width: 184px;
+    margin-top: 10px;
+    padding: 7px;
+    border: 1px solid #e3e7eb;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 16px 32px rgba(17, 24, 39, .18);
+    z-index: 1100;
+}
+
+.header_section .account-menu.show {
+    display: block;
+}
+
+.header_section .account-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 39px;
+    padding: 0 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #2a2f35 !important;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.header_section .account-menu .dropdown-item:hover,
+.header_section .account-menu .dropdown-item:focus {
+    border-color: #f3c4c7;
+    background: #fff4f4;
+    color: #c72f37 !important;
+}
+
+.header_section .account-menu .dropdown-item i {
+    width: 16px;
+    color: #d9363e;
+    text-align: center;
+}
+
+.header_section .account-menu .dropdown-divider {
+    margin: 6px 3px;
+    border-top-color: #eceff2;
+}
+
+.header_section .admin-mode-menu a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    color: #fff;
+}
+
+.header_section .admin-mode-menu a:hover {
+    border-color: #ffbe33;
+    background: #ffbe33;
+    color: #202124;
+}
+
+.footer_section a:focus-visible {
+    outline-color: rgba(255, 190, 51, .65);
+}
+
+.footer_section a[href]:not([href="#"]) {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 38px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 6px;
+    transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.footer_section a[href]:not([href="#"]):hover {
+    border-color: #ffbe33;
+    background: rgba(255, 190, 51, .12);
+    color: #ffbe33 !important;
+}
+
+@media (max-width: 991px) {
+    .header_section .navbar-nav .nav-link,
+    .header_section .account-menu-toggle {
+        width: min(290px, 100%);
+        margin: 3px auto;
+    }
+
+    .header_section .account-menu {
+        position: static;
+        float: none;
+        width: min(290px, 100%);
+        margin: 4px auto 8px;
+        text-align: left;
+        transform: none !important;
+    }
+}
+
+
+

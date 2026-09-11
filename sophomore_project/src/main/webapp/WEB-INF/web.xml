@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    version="4.0">
+
+    <!-- =====================================================
+         프로젝트 정보
+    ====================================================== -->
+    <display-name>WebMarket Exception Handling</display-name>
+
+
+    <!-- =====================================================
+         시작 페이지
+    ====================================================== -->
+    <welcome-file-list>
+        <welcome-file>
+            welcome.jsp
+        </welcome-file>
+    </welcome-file-list>
+
+
+    <!-- =====================================================
+         404 처리
+         존재하지 않는 페이지에 접근했을 때
+    ====================================================== -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/exceptionNoPage.jsp</location>
+    </error-page>
+
+
+    <!-- =====================================================
+         500 처리
+         JSP / Servlet / DB 등 서버 내부 오류가 발생했을 때
+    ====================================================== -->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/exceptionError.jsp</location>
+    </error-page>
+
+
+    <!-- =====================================================
+         ProductIdException 처리
+    ====================================================== -->
+    <error-page>
+        <exception-type>
+            exception.ProductIdException
+        </exception-type>
+        <location>/exceptionNoProductId.jsp</location>
+    </error-page>
+
+
+    <!-- =====================================================
+         UTF-8 Encoding Filter
+    ====================================================== -->
+    <filter>
+        <filter-name>
+            CharacterEncodingFilter
+        </filter-name>
+
+        <filter-class>
+            filter.CharacterEncodingFilter
+        </filter-class>
+
+        <init-param>
+            <param-name>
+                encoding
+            </param-name>
+
+            <param-value>
+                UTF-8
+            </param-value>
+        </init-param>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>
+            CharacterEncodingFilter
+        </filter-name>
+
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!-- =====================================================
+         로그 필터
+    ====================================================== -->
+    <filter>
+        <filter-name>
+            LogFilter
+        </filter-name>
+
+        <filter-class>
+            filter.LogFilter
+        </filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>
+            LogFilter
+        </filter-name>
+
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!-- =====================================================
+         관리자 권한 필터
+    ====================================================== -->
+    <filter>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <filter-class>
+            filter.AdminFilter
+        </filter-class>
+    </filter>
+
+
+    <!-- =====================================================
+         관리자 페이지 보호
+    ====================================================== -->
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/addproduct.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/processAddProduct.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/productEdit.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/productEditForm.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/processEditProduct.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/deleteproduct.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <filter-mapping>
+        <filter-name>
+            AdminFilter
+        </filter-name>
+
+        <url-pattern>/processDeleteProduct.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <!-- =====================================================
+         게시판 Controller
+    ====================================================== -->
+    <servlet>
+        <servlet-name>
+            BoardController
+        </servlet-name>
+
+        <servlet-class>
+            mvc.controller.BoardController
+        </servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>
+            BoardController
+        </servlet-name>
+
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+</web-app>
