@@ -92,12 +92,8 @@
     }
 
 
-    // 상품 수량
-    // 현재 등록 페이지에는 수량 입력칸이 없으므로 기본 1
     int productQuantity = 1;
 
-
-    // 이미지
     String fileName = null;
 
     Enumeration files =
@@ -114,7 +110,22 @@
     }
 
 
-    // 상품 객체 생성
+    ProductRepository dao =
+            ProductRepository.getInstance();
+
+    if (productId != null
+            && dao.getProductById(productId.trim()) != null) {
+%>
+
+<script>
+    alert("이미 있는 상품 코드입니다.");
+    history.back();
+</script>
+
+<%
+        return;
+    }
+
     Product newProduct =
             new Product();
 
@@ -130,13 +141,20 @@
     newProduct.setQuantity(productQuantity);
 
 
-    // DB 등록
-    ProductRepository dao =
-            ProductRepository.getInstance();
+    boolean isAdded =
+            dao.addProduct(newProduct);
 
-    dao.addProduct(newProduct);
+    if (!isAdded) {
+%>
 
+<script>
+    alert("상품 등록에 실패했습니다. 입력 내용을 다시 확인해주세요.");
+    history.back();
+</script>
 
-    // 등록 완료
+<%
+        return;
+    }
+
     response.sendRedirect("productsu.jsp");
 %>

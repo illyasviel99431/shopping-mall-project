@@ -48,15 +48,85 @@
     <meta charset="UTF-8">
     <title>주문 완료 | ILLYA</title>
     <style>
-        .complete-card { max-width: 650px; margin: 0 auto; padding: 55px 38px; text-align: center; }
-        .complete-icon { display: inline-flex; align-items: center; justify-content: center; width: 82px; height: 82px; margin-bottom: 22px; border-radius: 50%; background: #fff6dc; color: #d48b0b; font-size: 37px; }
-        .complete-card h2 { margin: 0 0 13px; color: #202124; font-size: 27px; font-weight: 900; }
-        .complete-card > p { margin: 0; color: #707780; font-size: 15px; line-height: 1.7; }
-        .complete-address { margin: 28px 0; padding: 18px 21px; border: 1px solid #e9ecef; border-radius: 9px; background: #fafbfc; text-align: left; }
-        .complete-address-label { display: block; margin-bottom: 7px; color: #858c95; font-size: 12px; font-weight: 800; }
-        .complete-address-value { overflow-wrap: anywhere; color: #30353b; font-size: 14px; font-weight: 700; }
-        .complete-actions { display: flex; justify-content: center; gap: 9px; }
-        @media (max-width: 575px) { .complete-card { padding: 42px 22px; } .complete-actions { flex-direction: column; } .complete-actions a { width: 100%; } }
+		.complete-card {
+			max-width: 650px;
+			margin: 0 auto;
+			padding: 55px 38px;
+			text-align: center;
+		}
+
+		.complete-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 82px;
+			height: 82px;
+			margin-bottom: 22px;
+			border-radius: 50%;
+			background: #fff6dc;
+			color: #d48b0b;
+			font-size: 37px;
+		}
+
+		.complete-card h2 {
+			margin: 0 0 13px;
+			color: #202124;
+			font-size: 27px;
+			font-weight: 900;
+		}
+
+		.complete-card > p {
+			margin: 0;
+			color: #707780;
+			font-size: 15px;
+			line-height: 1.7;
+		}
+
+		.complete-address {
+			margin: 28px 0;
+			padding: 18px 21px;
+			border: 1px solid #e9ecef;
+			border-radius: 9px;
+			background: #fafbfc;
+			text-align: left;
+		}
+
+		.complete-address-label {
+			display: block;
+			margin-bottom: 7px;
+			color: #858c95;
+			font-size: 12px;
+			font-weight: 800;
+		}
+
+		.complete-address-value {
+			overflow-wrap: anywhere;
+			color: #30353b;
+			font-size: 14px;
+			font-weight: 700;
+		}
+
+		.complete-actions {
+			display: flex;
+			justify-content: center;
+			gap: 9px;
+		}
+
+		@media (max-width: 575px) {
+
+			.complete-card {
+				padding: 42px 22px;
+			}
+
+			.complete-actions {
+				flex-direction: column;
+			}
+
+			.complete-actions a {
+				width: 100%;
+			}
+
+		}
     </style>
 </head>
 <body>

@@ -32,7 +32,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%=product.getPname()%> | ILLYA</title>
     <link href="<%=contextPath%>/css/myStyle.css" rel="stylesheet">
-    <link href="<%=contextPath%>/css/product.css" rel="stylesheet">
+    <link href="<%=contextPath%>/css/product.css?v=20260913-4" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="menu.jsp" />
@@ -68,7 +68,18 @@
                             <h1 id="productName" class="product-detail-name"><%=product.getPname()%></h1>
 
                             <% if (hasDescription) { %>
-                                <p class="product-detail-description"><%=product.getDescription()%></p>
+                                <div class="product-description-section">
+                                    <p id="productDescription" class="product-detail-description is-collapsed"><%=product.getDescription()%></p>
+                                    <button
+                                        id="productDescriptionToggle"
+                                        class="product-description-toggle"
+                                        type="button"
+                                        aria-controls="productDescription"
+                                        aria-expanded="false"
+                                        hidden>
+                                        <span data-i18n data-ko="더보기" data-en="More">더보기</span>
+                                    </button>
+                                </div>
                             <% } %>
 
                             <div class="product-price-box" aria-label="상품 가격">
@@ -98,6 +109,48 @@
                                 </div>
                             </dl>
 
+                            <div class="product-quantity-selector">
+                                <span
+                                    id="productQuantityLabel"
+                                    class="product-quantity-label"
+                                    data-i18n
+                                    data-ko="구매 수량"
+                                    data-en="Quantity">
+                                    구매 수량
+                                </span>
+                                <div
+                                    class="product-quantity-control"
+                                    role="group"
+                                    aria-labelledby="productQuantityLabel">
+                                    <button
+                                        type="button"
+                                        id="productQuantityDecrease"
+                                        class="product-quantity-button"
+                                        aria-label="수량 줄이기"
+                                        <%=isSoldOut ? "disabled" : ""%>>
+                                        −
+                                    </button>
+                                    <input
+                                        type="number"
+                                        id="productQuantity"
+                                        class="product-quantity-input"
+                                        min="1"
+                                        max="<%=product.getUnitsInStock()%>"
+                                        value="1"
+                                        readonly
+                                        aria-label="구매 수량"
+                                        <%=isSoldOut ? "disabled" : ""%>>
+                                    <button
+                                        type="button"
+                                        id="productQuantityIncrease"
+                                        class="product-quantity-button"
+                                        aria-label="수량 늘리기"
+                                        <%=isSoldOut ? "disabled" : ""%>>
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+
                             <div class="product-purchase-actions">
                                 <button
                                     type="button"
@@ -121,14 +174,81 @@
     <%@ include file="footer.jsp" %>
 
     <script>
+        (function () {
+            var description = document.getElementById("productDescription");
+            var toggle = document.getElementById("productDescriptionToggle");
+
+            if (!description || !toggle) {
+                return;
+            }
+
+            requestAnimationFrame(function () {
+                description.classList.remove("is-collapsed");
+
+                var lineHeight = parseFloat(window.getComputedStyle(description).lineHeight);
+                var exceedsThreeLines = description.scrollHeight > (lineHeight * 3 + 1);
+
+                if (exceedsThreeLines) {
+                    description.classList.add("is-collapsed");
+                    toggle.hidden = false;
+                }
+            });
+
+            toggle.addEventListener("click", function () {
+                var isExpanded = !description.classList.contains("is-collapsed");
+
+                description.classList.toggle("is-collapsed", isExpanded);
+                toggle.setAttribute("aria-expanded", String(!isExpanded));
+            });
+        })();
+
+        (function () {
+            var quantityInput = document.getElementById("productQuantity");
+            var decreaseButton = document.getElementById("productQuantityDecrease");
+            var increaseButton = document.getElementById("productQuantityIncrease");
+
+            if (!quantityInput || !decreaseButton || !increaseButton) {
+                return;
+            }
+
+            var minimum = Number(quantityInput.min) || 1;
+            var maximum = Number(quantityInput.max) || minimum;
+
+            function setQuantity(quantity) {
+                var nextQuantity = Math.min(
+                    maximum,
+                    Math.max(minimum, quantity)
+                );
+
+                quantityInput.value = nextQuantity;
+                decreaseButton.disabled = nextQuantity <= minimum;
+                increaseButton.disabled = nextQuantity >= maximum;
+            }
+
+            decreaseButton.addEventListener("click", function () {
+                setQuantity(Number(quantityInput.value) - 1);
+            });
+
+            increaseButton.addEventListener("click", function () {
+                setQuantity(Number(quantityInput.value) + 1);
+            });
+
+            setQuantity(Number(quantityInput.value));
+        })();
+
         function addToCart(id) {
             var isEnglish = document.documentElement.lang === "en";
+            var quantityInput = document.getElementById("productQuantity");
+            var quantity = quantityInput ? quantityInput.value : "1";
             var message = isEnglish
                 ? "Add this product to your cart?"
                 : "이 상품을 장바구니에 담을까요?";
 
             if (window.confirm(message)) {
-                window.location.href = "<%=contextPath%>/addCart.jsp?id=" + encodeURIComponent(id);
+                window.location.href = "<%=contextPath%>/addCart.jsp?id="
+                    + encodeURIComponent(id)
+                    + "&quantity="
+                    + encodeURIComponent(quantity);
             }
         }
     </script>

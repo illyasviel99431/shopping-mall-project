@@ -19,8 +19,6 @@ public class ProductRepository {
     }
 
 
-    // 생성자는 비워둔다.
-    // 이제 상품을 Java 코드에서 직접 생성하지 않는다.
     private ProductRepository() {
     }
 
@@ -38,7 +36,7 @@ public class ProductRepository {
                 + "p_manufacturer, p_category, p_unitsInStock, "
                 + "p_condition, p_fileName, p_quantity "
                 + "FROM product_illya "
-                + "ORDER BY p_id";
+                + "ORDER BY ROWID DESC";
 
 
         try (
@@ -124,7 +122,7 @@ public class ProductRepository {
                 + "OR UPPER(p_description) LIKE UPPER(?) "
                 + "OR UPPER(p_manufacturer) LIKE UPPER(?) "
                 + "OR UPPER(p_category) LIKE UPPER(?) "
-                + "ORDER BY p_id";
+                + "ORDER BY ROWID DESC";
 
         try (
             Connection conn = DBConnection.getConnection();

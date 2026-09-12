@@ -1,6 +1,4 @@
-/* =====================================================
-   ILLYA SHOP - product list and product detail
-===================================================== */
+
 
 :root {
     --product-ink: #171717;
@@ -312,16 +310,52 @@
     word-break: keep-all;
 }
 
-.product-detail-description {
-    display: -webkit-box;
-    overflow: hidden;
+.product-description-section {
     margin: 19px 0 24px;
+}
+
+.product-detail-description {
+    margin: 0;
     color: #646a72;
     font-size: 15px;
     line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: keep-all;
+}
+
+.product-detail-description.is-collapsed {
+    display: -webkit-box;
+    overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    word-break: keep-all;
+}
+
+.product-description-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #3d4249;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.4;
+    outline: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.product-description-toggle:hover {
+    color: var(--product-sale);
+}
+
+.product-description-toggle:focus,
+.product-description-toggle:focus-visible {
+    outline: 0;
+    box-shadow: none;
 }
 
 .product-price-box {
@@ -390,6 +424,73 @@
 .product-stock-status {
     font-size: 13px;
     font-weight: 700;
+}
+
+.product-quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--product-line);
+}
+
+.product-quantity-label {
+    color: #4c5158;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.product-quantity-control {
+    display: grid;
+    grid-template-columns: 42px 64px 42px;
+    overflow: hidden;
+    border: 1px solid #cfd3d8;
+    background: #fff;
+}
+
+.product-quantity-button {
+    border: 0;
+    background: #f7f8f9;
+    color: #32363c;
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.product-quantity-button:hover:not(:disabled) {
+    background: var(--product-ink);
+    color: #fff;
+}
+
+.product-quantity-button:disabled {
+    color: #b4b8be;
+    cursor: not-allowed;
+}
+
+.product-quantity-input {
+    width: 100%;
+    min-height: 42px;
+    border: 0;
+    border-right: 1px solid #e1e4e7;
+    border-left: 1px solid #e1e4e7;
+    color: #202328;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    outline: 0;
+}
+
+.product-quantity-input::-webkit-inner-spin-button,
+.product-quantity-input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.product-quantity-input:disabled {
+    background: #f1f2f4;
+    color: #969ba2;
 }
 
 .product-purchase-actions {

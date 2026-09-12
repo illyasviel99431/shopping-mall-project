@@ -8,7 +8,9 @@ public class DBConnection {
 
     private static final String URL =
             "jdbc:oracle:thin:@localhost:1521:xe";
-
+    
+    
+    // 자신의 오라클 아이디, 비밀번호로 바꾸기
     private static final String USER =
             "system";
 

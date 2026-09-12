@@ -23,6 +23,9 @@
     String id =
             request.getParameter("id");
 
+    String quantityValue =
+            request.getParameter("quantity");
+
 
     if (id == null
             || id.trim().isEmpty()) {
@@ -35,6 +38,30 @@
 
     ProductRepository dao =
             ProductRepository.getInstance();
+
+    int requestedQuantity = 1;
+
+    try {
+        if (quantityValue != null
+                && !quantityValue.trim().isEmpty()) {
+            requestedQuantity =
+                    Integer.parseInt(quantityValue);
+        }
+    } catch (NumberFormatException e) {
+        requestedQuantity = 0;
+    }
+
+    if (requestedQuantity <= 0) {
+%>
+
+<script>
+    alert("수량은 1개 이상 선택해주세요.");
+    history.back();
+</script>
+
+<%
+        return;
+    }
 
 
     Product product =
@@ -51,7 +78,6 @@
     }
 
 
-    // 실제 DB 재고 확인
     if (product.getUnitsInStock() <= 0) {
 %>
 
@@ -96,10 +122,7 @@ history.back();
                 .getProductId()
                 .equals(id)) {
 
-            // 장바구니에 넣을 때는 DB 재고를 차감하지 않는다.
-            // 결제하기를 눌렀을 때만 차감한다.
-
-            if (cartProduct.getQuantity() + 1
+            if (cartProduct.getQuantity() + requestedQuantity
                     > product.getUnitsInStock()) {
 %>
 
@@ -119,7 +142,7 @@ history.back();
 
 
             cartProduct.setQuantity(
-                    cartProduct.getQuantity() + 1
+                    cartProduct.getQuantity() + requestedQuantity
             );
 
             exists = true;
@@ -131,7 +154,19 @@ history.back();
 
     if (!exists) {
 
-        product.setQuantity(1);
+        if (requestedQuantity > product.getUnitsInStock()) {
+%>
+
+<script>
+    alert("현재 재고보다 많은 수량을 담을 수 없습니다.");
+    history.back();
+</script>
+
+<%
+            return;
+        }
+
+        product.setQuantity(requestedQuantity);
 
         cartList.add(product);
     }

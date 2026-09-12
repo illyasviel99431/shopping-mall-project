@@ -79,9 +79,9 @@
                     <h2><%=memberName%></h2>
                     <p class="profile-id"><i class="fa fa-user-circle-o" aria-hidden="true"></i><%=member.getId()%></p>
                     <nav class="profile-menu" aria-label="프로필 메뉴">
-                        <a href="productsu.jsp"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span data-i18n data-ko="상품 둘러보기" data-en="Shop products">상품 둘러보기</span></a>
-                        <a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span data-i18n data-ko="장바구니" data-en="Your cart">장바구니</span></a>
-                        <a href="cookie_out.jsp"><i class="fa fa-sign-out" aria-hidden="true"></i><span data-i18n data-ko="로그아웃" data-en="Sign out">로그아웃</span></a>
+                        <a href="productsu.jsp"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span style="color: black;" data-i18n data-ko="상품 둘러보기" data-en="Shop products">상품 둘러보기</span></a>
+                        <a href="cart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span style="color: black;" data-i18n data-ko="장바구니" data-en="Your cart">장바구니</span></a>
+                        <a href="cookie_out.jsp"><i class="fa fa-sign-out" aria-hidden="true"></i><span style="color: black;" data-i18n data-ko="로그아웃" data-en="Sign out">로그아웃</span></a>
                     </nav>
                 </aside>
 
@@ -92,13 +92,48 @@
                     <div class="profile-table-wrap">
                         <table class="profile-table">
                             <tbody>
-                                <tr><th scope="row" data-i18n data-ko="아이디" data-en="User ID">아이디</th><td><%=member.getId()%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="이름" data-en="Name">이름</th><td><%=memberName%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="성별" data-en="Gender">성별</th><td><%=member.getGender() == null ? "" : member.getGender()%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="생년월일" data-en="Date of birth">생년월일</th><td><%=member.getBirth() == null ? "" : member.getBirth()%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="이메일" data-en="Email">이메일</th><td><%=member.getEmail() == null ? "" : member.getEmail()%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="전화번호" data-en="Phone">전화번호</th><td><%=member.getPhone() == null ? "" : member.getPhone()%></td></tr>
-                                <tr><th scope="row" data-i18n data-ko="주소" data-en="Address">주소</th><td><%=member.getAddress() == null ? "" : member.getAddress()%></td></tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="아이디" data-en="User ID">
+                                		아이디
+                                	</th>
+                                	<td><%=member.getId()%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="이름" data-en="Name">
+                                		이름
+                                	</th>
+                                	<td><%=memberName%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="성별" data-en="Gender">
+                                		성별
+                                	</th>
+                                	<td><%=member.getGender() == null ? "" : member.getGender()%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="생년월일" data-en="Date of birth">
+                                		생년월일
+                                	</th>
+                                	<td><%=member.getBirth() == null ? "" : member.getBirth()%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="이메일" data-en="Email">
+                                		이메일
+                                	</th>
+                                	<td><%=member.getEmail() == null ? "" : member.getEmail()%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="전화번호" data-en="Phone">
+                                		전화번호
+                                	</th>
+                                	<td><%=member.getPhone() == null ? "" : member.getPhone()%></td>
+                                </tr>
+                                <tr>
+                                	<th scope="row" data-i18n data-ko="주소" data-en="Address">
+                                		주소
+                                	</th>
+                                	<td><%=member.getAddress() == null ? "" : member.getAddress()%></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

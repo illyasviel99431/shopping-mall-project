@@ -6,7 +6,6 @@
 
 
 <%
-    // 관리자 확인
     String deleteUserRole =
             (String) session.getAttribute("userRole");
 
@@ -43,14 +42,12 @@
     }
 
 
-    // 삭제
     ProductRepository dao =
             ProductRepository.getInstance();
 
     dao.deleteProduct(productId);
 
 
-    // 삭제 완료
     response.sendRedirect(
             "deleteproduct.jsp"
     );

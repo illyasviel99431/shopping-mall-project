@@ -33,16 +33,16 @@
     <title>상품 등록</title>
 
     <link
-    rel="stylesheet"
-    href="<%=request.getContextPath()%>/css/bootstrap.css">
+    	rel="stylesheet"
+    	href="<%=request.getContextPath()%>/css/bootstrap.css">
 
-<link
-    rel="stylesheet"
-    href="<%=request.getContextPath()%>/css/myStyle.css">
+	<link
+    	rel="stylesheet"
+    	href="<%=request.getContextPath()%>/css/myStyle.css">
 
-<link
-    rel="stylesheet"
-    href="<%=request.getContextPath()%>/css/prodcut-form.css">
+	<link
+    	rel="stylesheet"
+    	href="<%=request.getContextPath()%>/css/prodcut-form.css">
 
 </head>
 

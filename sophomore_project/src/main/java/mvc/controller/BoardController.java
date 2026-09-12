@@ -250,9 +250,9 @@ public class BoardController extends HttpServlet {
         }
 
         /*
-         * 같은 브라우저 세션에서 이미 본 게시글 번호를 저장한다.
+         * 같은 브라우저 세션에서 이미 본 게시글 번호를 저장함
          * 목록으로 돌아온 뒤 재진입하거나 새로고침해도 Set에는 같은 번호가
-         * 한 번만 들어가므로 조회수가 중복 증가하지 않는다.
+         * 한 번만 들어가서 조회수가 중복으로 증가하지 않는다
          */
         HttpSession session = request.getSession();
         BoardDAO boardDao = BoardDAO.getInstance();
@@ -282,13 +282,11 @@ public class BoardController extends HttpServlet {
 
                 if (increased) {
 
-                    // 화면에도 방금 증가한 조회수를 바로 표시한다.
                     board.setHit(board.getHit() + 1);
 
                 } else {
 
-                    // DB 증가 실패 시 다음 요청에서 다시 시도할 수 있게 한다.
-                    viewedBoardNumbers.remove(num);
+                                        viewedBoardNumbers.remove(num);
                 }
             }
         }

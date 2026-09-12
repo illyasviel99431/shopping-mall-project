@@ -22,32 +22,139 @@
     <meta charset="UTF-8">
     <title>프로필 수정 | ILLYA</title>
     <style>
-        .account-form-wrap { max-width: 790px; margin: 0 auto; }
-        .account-form { overflow: hidden; }
-        .account-form-head { display: flex; align-items: center; min-height: 84px; padding: 0 34px; border-bottom: 1px solid #e5e9ed; }
-        .account-form-head h2 { margin: 0; color: #25292e; font-size: 22px; font-weight: 900; }
-        .account-form-head p { display: none; }
-        .account-section, .account-form > .account-field { margin: 0; padding: 27px 34px; border-bottom: 1px solid #e5e9ed; }
-        .account-section-title { margin: 0 0 11px; color: #353a40; font-size: 15px; font-weight: 900; }
-        .account-grid { display: block; }
-        .account-field { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 20px; align-items: center; min-height: 72px; margin: 0; border-bottom: 1px solid #eef1f3; }
-        .account-field:last-child { border-bottom: 0; }
-        .account-field label { margin: 0; color: #69727c; font-size: 13px; font-weight: 900; }
-        .account-field input, .account-field select { width: 100%; height: 46px; padding: 0 13px; border: 1px solid #dce1e5; border-radius: 7px; background: #fff; color: #2c3136; font-size: 14px; outline: none; transition: .2s; }
-        .account-field input:focus, .account-field select:focus { border-color: #ffbe33; box-shadow: 0 0 0 3px rgba(255,190,51,.15); }
-        .account-field input[readonly] { background: #f7f8fa; color: #747b84; }
-        .account-hint { grid-column: 2; margin: -4px 0 8px; color: #858d96; font-size: 12px; }
-        .password-input { position: relative; }
-        .password-input input { padding-right: 48px; }
-        .password-toggle { position: absolute; top: 0; right: 0; width: 45px; height: 46px; border: 0; background: transparent; color: #6d747c; cursor: pointer; }
-        .account-actions { display: flex; justify-content: flex-end; gap: 9px; margin: 0; padding: 24px 34px; }
-        @media (max-width: 575px) {
-            .account-form-head, .account-section, .account-form > .account-field, .account-actions { padding-right: 20px; padding-left: 20px; }
-            .account-field { grid-template-columns: 1fr; gap: 8px; padding: 15px 0; }
-            .account-hint { grid-column: auto; margin: -2px 0 0; }
-            .account-actions { flex-direction: column-reverse; }
-            .account-actions a, .account-actions button { width: 100%; }
-        }
+		.account-form-wrap {
+			max-width: 790px;
+			margin: 0 auto;
+		}
+		.account-form {
+			overflow: hidden;
+		}
+		.account-form-head {
+			display: flex;
+			align-items: center;
+			min-height: 84px;
+			padding: 0 34px;
+			border-bottom: 1px solid #e5e9ed;
+		}
+		.account-form-head h2 {
+			margin: 0;
+			color: #25292e;
+			font-size: 22px;
+			font-weight: 900;
+		}
+		.account-form-head p {
+			display: none;
+		}
+		.account-section,
+		.account-form > .account-field {
+			margin: 0;
+			padding: 27px 34px;
+			border-bottom: 1px solid #e5e9ed;
+		}
+		.account-section-title {
+			margin: 0 0 11px;
+			color: #353a40;
+			font-size: 15px;
+			font-weight: 900;
+		}
+		.account-grid {
+			display: block;
+		}
+		.account-field {
+			display: grid;
+			grid-template-columns: 150px minmax(0, 1fr);
+			column-gap: 20px;
+			align-items: center;
+			min-height: 72px;
+			margin: 0;
+			border-bottom: 1px solid #eef1f3;
+		}
+		.account-field:last-child {
+			border-bottom: 0;
+		}
+		.account-field label {
+			margin: 0;
+			color: #69727c;
+			font-size: 13px;
+			font-weight: 900;
+		}
+		.account-field input,
+		.account-field select {
+			width: 100%;
+			height: 46px;
+			padding: 0 13px;
+			border: 1px solid #dce1e5;
+			border-radius: 7px;
+			background: #fff;
+			color: #2c3136;
+			font-size: 14px;
+			outline: none;
+			transition: .2s;
+		}
+		.account-field input:focus,
+		.account-field select:focus {
+			border-color: #ffbe33;
+			box-shadow: 0 0 0 3px rgba(255,190,51,.15);
+		}
+		.account-field input[readonly] {
+			background: #f7f8fa;
+			color: #747b84;
+		}
+		.account-hint {
+			grid-column: 2;
+			margin: -4px 0 8px;
+			color: #858d96;
+			font-size: 12px;
+		}
+		.password-input {
+			position: relative;
+		}
+		.password-input input {
+			padding-right: 48px;
+		}
+		.password-toggle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 45px;
+			height: 46px;
+			border: 0;
+			background: transparent;
+			color: #6d747c;
+			cursor: pointer;
+		}
+		.account-actions {
+			display: flex;
+			justify-content: flex-end;
+			gap: 9px;
+			margin: 0;
+			padding: 24px 34px;
+		}
+		@media (max-width: 575px) {
+			.account-form-head,
+			.account-section,
+			.account-form > .account-field,
+			.account-actions {
+				padding-right: 20px;
+				padding-left: 20px;
+			}
+			.account-field {
+				grid-template-columns: 1fr;
+				gap: 8px;
+				padding: 15px 0;
+			}
+			.account-hint {
+				grid-column: auto;
+				margin: -2px 0 0;
+			}
+			.account-actions {
+				flex-direction: column-reverse;
+			}
+			.account-actions a,
+			.account-actions button {
+				width: 100%;
+			}
+		}        }
     </style>
 </head>
 <body>

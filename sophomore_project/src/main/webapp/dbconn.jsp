@@ -10,6 +10,8 @@
         Class.forName("oracle.jdbc.OracleDriver");
 		
         String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        
+        // 자신의 오라클 아이디랑 비밀번호로 바꾸세요
         String user = "system";
         String password = "oracle";
 

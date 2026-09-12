@@ -21,23 +21,142 @@
     <meta charset="UTF-8">
     <title>배송 정보 | ILLYA</title>
     <style>
-        .checkout-wrap { max-width: 760px; margin: 0 auto; }
-        .checkout-steps { display: flex; justify-content: center; gap: 0; margin: -8px 0 30px; }
-        .checkout-step { position: relative; min-width: 112px; padding-top: 31px; color: #a2a8ae; font-size: 12px; font-weight: 800; text-align: center; }
-        .checkout-step::before { content: ""; position: absolute; top: 10px; left: 50%; width: 20px; height: 20px; border: 5px solid #dfe3e7; border-radius: 50%; background: #fff; transform: translateX(-50%); }
-        .checkout-step + .checkout-step::after { content: ""; position: absolute; top: 18px; right: 50%; width: 100%; height: 2px; background: #dfe3e7; z-index: -1; }
-        .checkout-step.is-active { color: #25282d; }
-        .checkout-step.is-active::before { border-color: #ffbe33; }
-        .checkout-form { padding: 32px 34px 35px; }
-        .checkout-form-title { margin: 0 0 7px; font-size: 22px; font-weight: 800; }
-        .checkout-form-desc { margin: 0 0 28px; color: #7d858e; font-size: 13px; }
-        .checkout-field { margin-bottom: 19px; }
-        .checkout-field label { display: block; margin-bottom: 8px; color: #3d4248; font-size: 13px; font-weight: 800; }
-        .checkout-field input { width: 100%; height: 47px; padding: 0 14px; border: 1px solid #dce1e5; border-radius: 7px; background: #fff; color: #25282d; font-size: 14px; outline: none; transition: .2s; }
-        .checkout-field input:focus { border-color: #ffbe33; box-shadow: 0 0 0 3px rgba(255, 190, 51, .16); }
-        .checkout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .checkout-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 29px; padding-top: 24px; border-top: 1px solid #edf0f2; }
-        @media (max-width: 575px) { .checkout-form { padding: 26px 21px; } .checkout-grid { grid-template-columns: 1fr; gap: 0; } .checkout-actions { flex-direction: column-reverse; } .checkout-actions a, .checkout-actions button { width: 100%; } }
+		.checkout-wrap {
+			max-width: 760px;
+			margin: 0 auto;
+		}
+
+		.checkout-steps {
+			display: flex;
+			justify-content: center;
+			gap: 0;
+			margin: -8px 0 30px;
+		}
+
+		.checkout-step {
+			position: relative;
+			min-width: 112px;
+			padding-top: 31px;
+			color: #a2a8ae;
+			font-size: 12px;
+			font-weight: 800;
+			text-align: center;
+		}
+
+		.checkout-step::before {
+			content: "";
+			position: absolute;
+			top: 10px;
+			left: 50%;
+			width: 20px;
+			height: 20px;
+			border: 5px solid #dfe3e7;
+			border-radius: 50%;
+			background: #fff;
+			transform: translateX(-50%);
+		}
+
+		.checkout-step + .checkout-step::after {
+			content: "";
+			position: absolute;
+			top: 18px;
+			right: 50%;
+			width: 100%;
+			height: 2px;
+			background: #dfe3e7;
+			z-index: -1;
+		}
+
+		.checkout-step.is-active {
+			color: #25282d;
+		}
+
+		.checkout-step.is-active::before {
+			border-color: #ffbe33;
+		}
+
+		.checkout-form {
+			padding: 32px 34px 35px;
+		}
+
+		.checkout-form-title {
+			margin: 0 0 7px;
+			font-size: 22px;
+			font-weight: 800;
+		}
+
+		.checkout-form-desc {
+			margin: 0 0 28px;
+			color: #7d858e;
+			font-size: 13px;
+		}
+
+		.checkout-field {
+			margin-bottom: 19px;
+		}
+
+		.checkout-field label {
+			display: block;
+			margin-bottom: 8px;
+			color: #3d4248;
+			font-size: 13px;
+			font-weight: 800;
+		}
+
+		.checkout-field input {
+			width: 100%;
+			height: 47px;
+			padding: 0 14px;
+			border: 1px solid #dce1e5;
+			border-radius: 7px;
+			background: #fff;
+			color: #25282d;
+			font-size: 14px;
+			outline: none;
+			transition: .2s;
+		}
+
+		.checkout-field input:focus {
+			border-color: #ffbe33;
+			box-shadow: 0 0 0 3px rgba(255, 190, 51, .16);
+		}
+
+		.checkout-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 16px;
+		}
+
+		.checkout-actions {
+			display: flex;
+			justify-content: space-between;
+			gap: 10px;
+			margin-top: 29px;
+			padding-top: 24px;
+			border-top: 1px solid #edf0f2;
+		}
+
+		@media (max-width: 575px) {
+
+			.checkout-form {
+				padding: 26px 21px;
+			}
+
+			.checkout-grid {
+				grid-template-columns: 1fr;
+				gap: 0;
+			}
+
+			.checkout-actions {
+				flex-direction: column-reverse;
+			}
+
+			.checkout-actions a,
+			.checkout-actions button {
+				width: 100%;
+			}
+
+		}
     </style>
 </head>
 <body>
