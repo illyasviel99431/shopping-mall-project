@@ -12,10 +12,10 @@ public class DBConnection {
     
     // 자신의 오라클 아이디, 비밀번호로 바꾸기
     private static final String USER =
-            "system";
+            "";
 
     private static final String PASSWORD =
-            "oracle";
+            "";
 
     static {
         try {
